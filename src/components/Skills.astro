@@ -15,7 +15,7 @@ const skills = [
     
     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 pt-24">
       {skills.map((skill) => (
-        /* 1. Añadimos opacity-40 de base y group-hover:opacity-100 */
+
         <div class="skill-card p-6 bg-slate-800/50 rounded-xl border border-slate-700 hover:border-blue-500 transition-all duration-300 group opacity-40 hover:opacity-100 cursor-default">
           <i class={`${skill.icon} text-5xl mb-4 block group-hover:scale-110 transition-transform`}></i>
           <p class="font-medium text-slate-400 group-hover:text-white transition-colors">{skill.name}</p>
@@ -46,9 +46,8 @@ const skills = [
         start: "top 85%",
         toggleActions: "play none none none"
       },
-      // ESTA ES LA CLAVE:
+
       onComplete: function() {
-        // Quitamos la opacidad que puso GSAP para que el hover de CSS funcione
         gsap.set(".skill-card", { clearProps: "opacity" });
       }
     }

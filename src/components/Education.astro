@@ -51,8 +51,8 @@ const studies = [
   import { ScrollTrigger } from "gsap/ScrollTrigger";
   gsap.registerPlugin(ScrollTrigger);
 
-  // 1. Animación de los Logos (Parallax/Entrada)
-  // Logo SENA: Viene desde fuera de la izquierda hacia el centro de la mitad izquierda
+
+
   gsap.fromTo("#logo-sena", 
     { x: "-150%", opacity: 2 },
     {
@@ -62,12 +62,12 @@ const studies = [
         trigger: "#education",
         start: "top 80%",
         end: "center center",
-        scrub: 1, // El movimiento sigue el scroll
+        scrub: 1,
       }
     }
   );
 
-  // Logo UTolima: Viene desde fuera de la derecha hacia el centro de la mitad derecha
+
   gsap.fromTo("#logo-utolima", 
     { x: "150%", opacity: 5 },
     {
@@ -82,7 +82,7 @@ const studies = [
     }
   );
 
-  // 2. Animación de los textos (Tu código original)
+
   gsap.to(".education-item", {
     opacity: 1,
     x: 20,

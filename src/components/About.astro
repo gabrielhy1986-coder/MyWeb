@@ -41,15 +41,15 @@
   import { ScrollTrigger } from "gsap/ScrollTrigger";
   gsap.registerPlugin(ScrollTrigger);
 
-  // Animación de entrada
+
   gsap.to("#about-image, #about-text", {
     opacity: 1,
     x: 0,
     duration: 3,
-    stagger: 0.3, // Uno después del otro
+    stagger: 0.3,
     scrollTrigger: {
       trigger: "#about",
-      start: "top 50%", // Empieza cuando el top de la sección llega al 80% de la pantalla
+      start: "top 50%",
       toggleActions: "play none none reverse"
     }
   });

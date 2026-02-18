@@ -14,10 +14,10 @@
   import { gsap } from "gsap";
   import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-  // Registrar el plugin
+
   gsap.registerPlugin(ScrollTrigger);
 
-  // Animación para el fondo (se mueve hacia abajo más lento)
+
   gsap.to("#parallax-bg", {
     yPercent: 30,
     ease: "none",
@@ -25,11 +25,11 @@
       trigger: "section",
       start: "top top", 
       end: "bottom top",
-      scrub: true // Sincroniza la animación con el movimiento del mouse
+      scrub: true
     }
   });
 
-  // Animación para el texto (se mueve hacia arriba)
+
   gsap.to("#hero-content", {
     yPercent: -50,
     opacity: 0,
