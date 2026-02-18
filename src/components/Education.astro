@@ -1,0 +1,96 @@
+---
+const studies = [
+  {
+    title: "Análisis y Desarrollo de Software",
+    institution: "Servicio Nacional de Aprendizaje - SENA",
+    date: "2022 - Presente"
+  },
+  {
+    title: "Ingeniero Agroindustrial",
+    institution: "Universidad del Tolima",
+    date: "2017"
+  }
+];
+---
+
+
+<section id="education" class="relative py-20 bg-slate-900 text-white px-6 py-32 overflow-hidden">
+  
+  <div class="absolute inset-0 pointer-events-none flex items-center justify-between px-10 md:px-20 overflow-hidden">
+    <img 
+      id="logo-sena" 
+      src="/logos/sena-logo.png" 
+      alt="Logo SENA" 
+      class="w-24 md:w-48 opacity-10 grayscale brightness-200"
+    />
+    <img 
+      id="logo-utolima" 
+      src="/logos/utolima-logo.png" 
+      alt="Logo Universidad del Tolima" 
+      class="w-24 md:w-48 opacity-90 grayscale brightness-200"
+    />
+  </div>
+
+  <div class="relative z-10 max-w-4xl mx-auto">
+    <h2 class="text-4xl font-bold mb-20 text-center">Mis <span class="text-blue-500">Estudios</span></h2>
+    
+    <div class="relative border-l border-slate-700 ml-3 md:ml-0">
+      {studies.map((study) => (
+        <div class="mb-16 ml-6 education-item opacity-0">
+          <h3 class="flex items-center mb-1 text-xl font-semibold">{study.title}</h3>
+          <time class="block mb-2 text-sm font-normal leading-none text-blue-400">{study.date}</time>
+          <p class="text-lg font-normal text-slate-400">{study.institution}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  gsap.registerPlugin(ScrollTrigger);
+
+  // 1. Animación de los Logos (Parallax/Entrada)
+  // Logo SENA: Viene desde fuera de la izquierda hacia el centro de la mitad izquierda
+  gsap.fromTo("#logo-sena", 
+    { x: "-150%", opacity: 2 },
+    {
+      x: "0%", 
+      opacity: 0.1,
+      scrollTrigger: {
+        trigger: "#education",
+        start: "top 80%",
+        end: "center center",
+        scrub: 1, // El movimiento sigue el scroll
+      }
+    }
+  );
+
+  // Logo UTolima: Viene desde fuera de la derecha hacia el centro de la mitad derecha
+  gsap.fromTo("#logo-utolima", 
+    { x: "150%", opacity: 5 },
+    {
+      x: "0%", 
+      opacity: 0.1,
+      scrollTrigger: {
+        trigger: "#education",
+        start: "top 80%",
+        end: "center center",
+        scrub: 1,
+      }
+    }
+  );
+
+  // 2. Animación de los textos (Tu código original)
+  gsap.to(".education-item", {
+    opacity: 1,
+    x: 20,
+    duration: 0.8,
+    stagger: 0.3,
+    scrollTrigger: {
+      trigger: "#education",
+      start: "top 60%",
+    }
+  });
+</script>
