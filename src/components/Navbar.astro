@@ -1,16 +1,31 @@
+---
+// Navbar.astro
+const pathname = Astro.url.pathname;
+const isHome = pathname === "/";
+---
+
 <nav id="navbar" class="fixed w-full z-50 transition-colors duration-300 px-6 py-4">
   <div class="max-w-7xl mx-auto flex justify-between items-center">
     <div class="text-white font-bold text-xl tracking-tighter">
-      GABO<span class="text-blue-500">.DEV</span>
+      <a href="/">GABO<span class="text-blue-500">.DEV</span></a>
     </div>
     
     <div class="hidden md:flex gap-8 text-slate-300 font-medium">
-      <a href="/#" class="hover:text-blue-500 transition-colors">Inicio</a>
-      <a href="#about" class="hover:text-blue-500 transition-colors">Sobre Mí</a>
-      <a href="#education" class="hover:text-blue-500 transition-colors">Estudios</a>
-      <a href="#skills" class="hover:text-blue-500 transition-colors">Conocimientos</a>
+      <a href="/" class="hover:text-blue-500 transition-colors">Inicio</a>
+
+      {isHome ? (
+        <>
+          <a href="#about" class="hover:text-blue-500 transition-colors">Sobre Mí</a>
+          <a href="#education" class="hover:text-blue-500 transition-colors">Estudios</a>
+          <a href="#skills" class="hover:text-blue-500 transition-colors">Conocimientos</a>
+        </>
+      ) : (
+        null 
+      )}
+
       <a href="/proyectos" class="hover:text-blue-500 transition-colors">Proyectos</a>
-      <a href="#contacto" class="hover:text-blue-500 transition-colors">Contacto</a>
+      
+      <a href="/contacto" class="hover:text-blue-500 transition-colors">Contacto</a>
     </div>
   </div>
 </nav>
